@@ -1,0 +1,42 @@
+/zadanie 1/
+
+SELECT tytul_oryginalny FROM film;
+
+/zadanie 2/
+
+SELECT id_film, tytul_oryginalny AS title FROM film;
+
+/Zadanie 3/
+
+SELECT * FROM film WHERE id_film = 1;
+
+/Zadanie 4/
+
+SELECT film.id_film, film.tytul_oryginalny, 
+	funkcja.id_funkcja, funkcja.nazwa, 
+		osoba.id_osoba, osoba.imie, osoba.nazwisko, 
+		film_osoba_funkcja.id_film, film_osoba_funkcja.id_osoba, 
+			film_osoba_funkcja.id_funkcja FROM film, funkcja, 
+				osoba, film_osoba_funkcja WHERE funkcja.nazwa = "reżyseria" 
+					AND osoba.id_osoba = film_osoba_funkcja.id_osoba AND 
+						film.id_film = film_osoba_funkcja.id_film AND 
+						film_osoba_funkcja.id_funkcja = funkcja.id_funkcja;
+								
+/Zadanie 5/
+								
+SELECT F.id_film , F.tytul_oryginalny , U.id_funkcja , 
+		U.nazwa , O.id_osoba , O.imie , O.nazwisko , V.id_film , 
+			V.id_osoba , V.id_funkcja FROM film AS F, funkcja AS U, osoba AS O, 
+				film_osoba_funkcja AS V WHERE 
+					U.nazwa = "reżyseria" AND O.id_osoba = V.id_osoba 
+					AND F.id_film = V.id_film AND V.id_funkcja = U.id_funkcja;
+
+/Zadanie 6/
+
+SELECT imie, nazwisko, tytul_oryginalny 
+	FROM film_osoba_funkcja JOIN osoba 
+		ON film_osoba_funkcja.id_osoba = osoba.id_osoba JOIN film 
+			ON film.id_film = film_osoba_funkcja.id_film 
+SELECT DISTINCT imie, nazwisko, tytul_oryginalny from film_osoba_funkcja 
+	JOIN osoba on film_osoba_funkcja.id_osoba=osoba.id_osoba 
+		JOIN film on film_osoba_funkcja.id_film = film.id_film;

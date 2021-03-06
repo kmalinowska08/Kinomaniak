@@ -1,0 +1,11 @@
+SELECT tytul_oryginalny, nazwa FROM film_kraj INNER JOIN film ON film.id_film= film_kraj.id_kraj INNER JOIN kraj ON kraj.id_kraj= film_kraj.id_kraj WHERE nazwa= 'USA';
+
+SELECT tytul_oryginalny, nazwa FROM film_kraj INNER JOIN film ON film.id_film= film_kraj.id_film INNER JOIN kraj ON kraj.id_kraj= film_kraj.id_kraj;
+
+INSERT INTO kraj VALUES (5, 'Kanada');
+
+INSERT INTO film VALUES (5, 'Rrrrr', 1999, 120);
+
+SELECT tytul_oryginalny, nazwa FROM film_kraj LEFT JOIN film ON film.id_film= film_kraj.id_film LEFT JOIN kraj ON kraj.id_kraj= film_kraj.id_kraj;
+
+SELECT tytul_oryginalny, nazwa FROM film_kraj RIGHT JOIN film ON film.id_film= film_kraj.id_film RIGHT JOIN kraj ON kraj.id_kraj= film_kraj.id_kraj;

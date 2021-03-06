@@ -1,0 +1,14 @@
+/*0*/
+insert into gatunek values (6, 'hodor');
+
+/*1*/
+UPDATE gatunek SET nazwa= 'horror' WHERE id_gatunek= 6;
+
+/*2*/
+Update film SET czas_trwania= 120 WHERE tytul_oryginalny LIKE 'Leon';
+
+/*3*/
+update film_uzytkownik_ocena SET ocena= ocena*10;
+
+/*4*/
+INSERT INTO film (id_film, tytul_oryginalny, rok_produkcji, czas_trwania) VALUES (1, 'Leon', 1994, 120) ON DUPLICATE KEY UPDATE tytul_oryginalny= 'Black', rok_produkcji= 2020, czas_trwania= 200;

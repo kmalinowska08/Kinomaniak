@@ -1,0 +1,11 @@
+/Zadanie 1/
+INSERT INTO film VALUES (1, 'Filmy', 2020, 120); Wyskakuje błąd, że nie można wstawić wpisu ze zględu na lucz główny.
+
+/Zadanie 2/
+INSERT IGNORE film VALUES (1, 'Filmy', 2020, 120);- nie udało się wstawić nowego wpisu, ale nie wyskoczył bąd jak wyżej.
+
+/Zadanie 3/
+CREATE TABLE film_rezyser (id INT PRIMARY KEY AUTO_INCREMENT, imie VARCHAR(100), nazwisko VARCHAR(100), tytul_filmu VARCHAR(100));
+
+/Zadanie 4/
+INSERT into film_rezyser (imie, nazwisko, tytul_filmu) SELECT osoba.imie, osoba.nazwisko, tytul_oryginalny FROM film, osoba, film_osoba_funkcja, funkcja WHERE film.id_film = film_osoba_funkcja.id_film and film_osoba_funkcja.id_osoba = osoba.id_osoba and film_osoba_funkcja.id_funkcja = funkcja.id_funkcja and funkcja.nazwa LIKE 'reżyseria';

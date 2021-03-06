@@ -1,0 +1,6 @@
+CREATE VIEW pracownik AS SELECT tytul_oryginalny, imie, nazwisko, nazwa FROM film_osoba_funkcja JOIN film ON film_osoba_funkcja.id_film= film.id_film JOIN osoba ON film_osoba_funkcja.id_osoba= osoba.id_osoba JOIN funkcja ON film_osoba_funkcja.id_funkcja= funkcja.id_funkcja;
+
+CREATE VIEW aktor AS SELECT tytul_oryginalny, imie, nazwisko, rola FROM film_osoba_rola JOIN film ON film_osoba_rola.id_film= film.id_film JOIN osoba ON film_osoba_rola.id_osoba= osoba.id_osoba;
+
+CREATE VIEW new AS SELECT tytul_oryginalny, imie, nazwisko, funkcja.nazwa, kraj.nazwa FROM film_osoba_funkcja, film_kraj JOIN film ON film.id_film= film_osoba_funkcja.id_film AND film.id_film= film_kraj.id_film JOIN osoba ON osoba.id_osoba= film_osoba_funkcja.id_osoba 
+JOIN funkcja ON funkcja.id_funkcja= film_osoba_funkcja.id_funkcja JOIN kraj ON kraj.id_kraj= film_kraj.id_kraj;

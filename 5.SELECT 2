@@ -1,0 +1,39 @@
+/zadanie 1/
+SELECT nazwisko FROM osoba WHERE nazwisko LIKE 'J%';
+
+/zadanie 2/
+SELECT nazwisko FROM osoba WHERE nazwisko LIKE '%_e%';
+
+/zadaznie 3/
+SELECT nazwisko FROM osoba WHERE nazwisko LIKE '%ou%';
+
+/zadanie 4/
+(SELECT DISTINCT imie, nazwisko, tytul_oryginalny, rola from film_osoba_rola
+    JOIN osoba on film_osoba_rola.id_osoba=osoba.id_osoba 
+     JOIN film on film_osoba_rola.id_film = film.id_film 
+		WHERE nazwisko LIKE '%ou%')
+UNION
+(SELECT DISTINCT imie, nazwisko, tytul_oryginalny, nazwa from film_osoba_funkcja
+ JOIN osoba ON film_osoba_funkcja.id_osoba = osoba.id_osoba JOIN film 
+	ON film_osoba_funkcja.id_film = film.id_film JOIN funkcja 
+		ON film_osoba_funkcja.id_funkcja = funkcja.id_funkcja 
+			WHERE nazwisko LIKE '%ou%');
+
+/Zadanie 5/
+SELECT * FROM osoba ORDER BY `nazwisko` DESC
+
+/Zadanie 6/
+INSERT INTO osoba VALUES (5, 'Juan', 'Besson');
+
+/Zadanie 7/
+SELECT imie, nazwisko FROM osoba ORDER BY imie, nazwisko ASC;
+
+/Zadanie 8/
+SELECT  tytul_oryginalny FROM film WHERE id_film IN 
+(SELECT id_film FROM film_osoba_rola, osoba 
+	WHERE film.id_film = film_osoba_rola.id_film 
+		AND osoba.id_osoba = film_osoba_rola.id_osoba);
+
+/Zadanie 9/
+
+SELECT 

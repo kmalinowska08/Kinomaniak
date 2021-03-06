@@ -1,0 +1,3 @@
+SELECT tytul_oryginalny, imie, nazwisko, nazwa FROM film_osoba_funkcja RIGHT OUTER JOIN film ON film.id_film= film_osoba_funkcja.id_film LEFT OUTER JOIN osoba ON osoba.id_osoba= film_osoba_funkcja.id_osoba LEFT OUTER JOIN funkcja ON funkcja.id_funkcja= film_osoba_funkcja.id_funkcja;
+
+SELECT tytul_oryginalny, avg(ocena), max(ocena), min(ocena) FROM film_uzytkownik_ocena Right outer JOIN film ON film.id_film= film_uzytkownik_ocena.id_film GROUP BY film.id_film, film_uzytkownik_ocena.ocena;
